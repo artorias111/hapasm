@@ -1,3 +1,3 @@
-process run_hifiasm { }
+process runHifiasm { }
 
 process gfa2fa { }

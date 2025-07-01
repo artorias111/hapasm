@@ -1,4 +1,4 @@
-process run_yahs {
+process ScaffoldWithYahs {
     input:
     path fasta
     path aligned_bam
