@@ -21,11 +21,13 @@ for f in files_list:
 
         if '_R1' in curr_file:
             reads_description['R1'] = Path(original_file).as_posix()
+            Path(curr_file).symlink_to(original_file)
+
 
         if '_R2' in curr_file:
             reads_description['R2'] = Path(original_file).as_posix()
+            Path(curr_file).symlink_to(original_file)
     else:
         continue
 
-print(reads_description['R1'])
-print(reads_description['R2'])
+# print(reads_description) # debug

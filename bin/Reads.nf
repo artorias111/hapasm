@@ -3,16 +3,14 @@ process getHifiReads {
     path hifi_dir
 
     output:
-    tuple path("*.fastq.gz"), emit: hifi_reads
-
+    path hifi_reads
 
     script:
     """
+    mkdir hifi_reads
     python3 ${projectDir}/bin/getHifiReads.py --dir ${hifi_dir}
+    mv *.fastq.gz hifi_reads
     """
-    
-
-
 }
 
 
@@ -22,11 +20,13 @@ process getHicReads {
     path hic_dir
 
     output:
-    path hic_reads1, emit: read1
-    path hic_reads2, emit: read2
+    path hic_files
+
 
     script:
     """
+    mkdir hic_files
     python3 ${projectDir}/bin/getHicReads.py --dir ${hic_dir}
+    mv *.fastq.gz hic_files
     """
 }
