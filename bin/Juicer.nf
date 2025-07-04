@@ -1,4 +1,4 @@
-process create_heatmap {
+process createHeatmap {
     input:
     path contig_assembly_index
     path yahs_bin

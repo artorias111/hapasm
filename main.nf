@@ -5,6 +5,23 @@ include { getHifiReads; getHicReads } from './bin/Reads.nf'
 include { runBusco as runBusco_round1 } from './bin/Busco.nf'
 include { runQuast as runQuast_round1 } from './bin/Quast.nf'
 
+// scaffold related processes
+include { AlignhicReads } from './bin/Bwamem2.nf'
+include { ScaffoldWithYahs } from './bin/Yahs.nf'
+include { createHeatmap } from './bin/Juicer.nf'
+
+workflow scaffold {
+    take:
+    assembly_ch
+
+    main:
+    AlignhicReads(hic1_ch, hic2_ch, assembly_ch)
+    ScaffoldWithYahs(assembly_ch, AlignhicReads.out.aligned_bam)
+
+    emit:
+    ScaffoldWithYahs.out.scaffolded_assembly
+} 
+
 
 
 workflow {
@@ -37,6 +54,9 @@ workflow {
     .flatten()
 
     gfa2fa(hifiasm_out)
-    runBusco_round1(gfa2fa.out, {params.species_id})
-    runQuast_round1(gfa2fa.out, {params.species_id})
+    runBusco_round1(gfa2fa.out)
+    runQuast_round1(gfa2fa.out)
+
+    scaffold(gfa2fa.out)
 }
+

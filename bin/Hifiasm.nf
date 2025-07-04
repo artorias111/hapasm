@@ -23,10 +23,10 @@ process gfa2fa {
     path gfa_file
 
     output:
-    path "${gfa_file.getSimpleName}.fa"
+    path "${gfa_file.getBaseName()}.fa"
 
     script:
     """
-    awk '/^S/{print ">"\$2;print \$3}' ${gfa_file} > ${gfa_file.getSimpleName()}.fa
+    awk '/^S/{print ">"\$2;print \$3}' ${gfa_file} > ${gfa_file.getBaseName()}.fa
     """
 }

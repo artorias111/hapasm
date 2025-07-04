@@ -4,7 +4,7 @@ process ScaffoldWithYahs {
     path aligned_bam
 
     output:
-    path "yahs.out_scaffolds_final.fa"
+    path "yahs.out_scaffolds_final.fa", emit: scaffolded_assembly
     path "yahs.out_scaffolds_final.fa.fai"
 
     script:

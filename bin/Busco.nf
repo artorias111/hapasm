@@ -1,18 +1,17 @@
 process runBusco {
     conda params.busco_conda
 
-    publishDir { "${params.outdir}/${asm_name}_busco_results" }, mode: 'copy'
+    publishDir "${params.outdir}", saveAs: { filename -> "${filename}" }
 
     input:
     path genome_asm
-    val asm_name
 
     output:
-    path "${asm_name}_BUSCO", emit :busco_results
+    path "${genome_asm}.BUSCO", emit :busco_results
 
     script:
     """
-    busco -o ${asm_name}_BUSCO \
+    busco -o ${genome_asm}.BUSCO \
     -i ${genome_asm} \
     -m geno \
     -l ${params.busco_lineage} \

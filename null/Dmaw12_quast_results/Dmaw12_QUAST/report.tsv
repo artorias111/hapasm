@@ -1,0 +1,29 @@
+Assembly	Dmaw12.hic.p_ctg
+# contigs (>= 0 bp)	625
+# contigs (>= 1000 bp)	625
+# contigs (>= 5000 bp)	625
+# contigs (>= 10000 bp)	623
+# contigs (>= 25000 bp)	482
+# contigs (>= 50000 bp)	244
+Total length (>= 0 bp)	841637431
+Total length (>= 1000 bp)	841637431
+Total length (>= 5000 bp)	841637431
+Total length (>= 10000 bp)	841619745
+Total length (>= 25000 bp)	838834670
+Total length (>= 50000 bp)	830801488
+# contigs	625
+Largest contig	35054308
+Total length	841637431
+Estimated reference length	600000000
+GC (%)	41.53
+N50	22118608
+NG50	25148706
+N90	2287471
+NG90	17923172
+auN	20104486.9
+auNG	28201147.8
+L50	15
+LG50	10
+L90	53
+LG90	21
+# N's per 100 kbp	0.00

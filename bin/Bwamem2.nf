@@ -1,4 +1,4 @@
-process AignHicReads {
+process AlignHicReads {
     conda params.bwa_mem_env
 
     input:
